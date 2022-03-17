@@ -42,7 +42,7 @@ class HomeView extends GetView<HomeController> {
               Form(
                 key: formGlobalKey,
                 child: TextFormField(
-                  validator: (nilai) => nilai!.isEmpty || nilai == null
+                  validator: (nilai) => nilai!.isNotEmpty || nilai == null
                       ? "input nomor kartu"
                       : null,
                   controller: HomeC.noTicket,
