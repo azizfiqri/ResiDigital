@@ -8,12 +8,11 @@ import 'package:residigital/app/models/resi_model.dart';
 import 'package:screenshot/screenshot.dart';
 
 class HomeController extends GetxController {
-  // var noResi = "".obs;
+  final url = Uri.parse('https://ops.jmiot.org/apii/resii');
   late File imageFile;
   var lengthdataResi = 0.obs;
   ScreenshotController screenshotController = ScreenshotController();
   var noTicket = TextEditingController();
-  // final noresi = "".obs;
   var showData = false.obs;
 
   @override
@@ -33,7 +32,6 @@ class HomeController extends GetxController {
   }
 
   Future<List<ResiModel>> getData() async {
-    final url = Uri.parse('https://ops.jmiot.org/apii/resii');
     final response = await http.post(
       url,
       body: {'no_kartu': noTicket.text},
@@ -63,6 +61,5 @@ class HomeController extends GetxController {
     }
 
     throw Exception('Failed to load from API');
-    // return <ResiModel>[];
   }
 }
